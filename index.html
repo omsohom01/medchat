@@ -5,93 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedChat</title>
     <style>
-        body {
-            background-color: pink;
-            font-family: Arial, sans-serif;
-            text-align: center;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffc0cb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Logo container */
+        #logo {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Placeholder logo, replace later */
+        #logo img {
+            width: 150px;
+            height: 150px;
         }
 
         h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             color: black;
-            margin-top: 30px;
+            text-align: center;
         }
 
-        .container {
+        /* Grid for the sections */
+        .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            justify-content: center;
-            padding: 40px;
+            grid-gap: 20px;
+            justify-items: center;
+            width: 90%;
         }
 
-        .box {
-            background-color: white;
+        .section {
             width: 150px;
             height: 150px;
-            border-radius: 20px;
+            background-color: white;
+            border-radius: 15px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
-            cursor: pointer;
+            align-items: center;
+            position: relative;
             transition: transform 0.3s ease;
         }
 
-        .box:hover {
-            transform: scale(1.1);
+        .section:hover {
+            transform: scale(1.05);
         }
 
         .section-name {
+            position: absolute;
+            bottom: -35px;
+            text-align: center;
             color: blue;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 400; /* Thinner text */
         }
     </style>
 </head>
 <body>
+    <!-- Placeholder for logo -->
+    <div id="logo">
+        <img src="logo-placeholder.png" alt="Logo"> <!-- Replace this with your actual logo -->
+    </div>
+
     <h1>MEDCHAT</h1>
-    <div class="container">
-        <div>
-            <div class="box" onclick="showSection('Brain')"></div>
+
+    <div class="grid">
+        <div class="section">
             <div class="section-name">Brain</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Liver')"></div>
+        <div class="section">
             <div class="section-name">Liver</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Kidney')"></div>
+        <div class="section">
             <div class="section-name">Kidney</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Heart')"></div>
+        <div class="section">
             <div class="section-name">Heart</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Cancer')"></div>
+        <div class="section">
             <div class="section-name">Cancer</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Gut')"></div>
+        <div class="section">
             <div class="section-name">Gut</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Orthopaedic')"></div>
+        <div class="section">
             <div class="section-name">Orthopaedic</div>
         </div>
-        <div>
-            <div class="box" onclick="showSection('Mental Health')"></div>
+        <div class="section">
             <div class="section-name">Mental Health</div>
         </div>
     </div>
-
-    <script>
-        function showSection(section) {
-            alert('You clicked on the ' + section + ' section');
-            // You can replace this alert with code to show more details or navigate to another page
-        }
-    </script>
 </body>
 </html>
