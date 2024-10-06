@@ -35,6 +35,12 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
         }
 
         .section-name {
@@ -48,37 +54,44 @@
     <h1>MEDCHAT</h1>
     <div class="container">
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Brain')"></div>
             <div class="section-name">Brain</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Liver')"></div>
             <div class="section-name">Liver</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Kidney')"></div>
             <div class="section-name">Kidney</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Heart')"></div>
             <div class="section-name">Heart</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Cancer')"></div>
             <div class="section-name">Cancer</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Gut')"></div>
             <div class="section-name">Gut</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Orthopaedic')"></div>
             <div class="section-name">Orthopaedic</div>
         </div>
         <div>
-            <div class="box"></div>
+            <div class="box" onclick="showSection('Mental Health')"></div>
             <div class="section-name">Mental Health</div>
         </div>
     </div>
+
+    <script>
+        function showSection(section) {
+            alert('You clicked on the ' + section + ' section');
+            // You can replace this alert with code to show more details or navigate to another page
+        }
+    </script>
 </body>
 </html>
