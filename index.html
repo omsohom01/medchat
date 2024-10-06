@@ -33,18 +33,11 @@
             height: 150px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: black;
-            text-align: center;
-        }
-
         /* Grid for the sections */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
+            grid-gap: 40px; /* Increased gap to avoid overlap */
             justify-items: center;
             width: 90%;
         }
@@ -67,7 +60,7 @@
 
         .section-name {
             position: absolute;
-            bottom: -35px;
+            top: 160px; /* Positioning the section names right below each box */
             text-align: center;
             color: blue;
             font-size: 1rem;
@@ -80,8 +73,6 @@
     <div id="logo">
         <img src="logo-placeholder.png" alt="Logo"> <!-- Replace this with your actual logo -->
     </div>
-
-    <h1>MEDCHAT</h1>
 
     <div class="grid">
         <div class="section">
