@@ -18,20 +18,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align everything to the top */
             min-height: 100vh;
             overflow: hidden; /* Prevents scrolling */
         }
 
         /* Logo container */
         #logo {
-            margin-bottom: 10px; /* Move the logo slightly higher */
+            margin-top: 30px; /* Moves the logo higher up the page */
             text-align: center;
         }
 
         #logo img {
-            width: 250px; /* Adjust the size of the logo to balance space */
-            height: 250px;
+            width: 300px; /* Logo size stays the same */
+            height: 300px;
         }
 
         /* Grid for the sections */
@@ -41,6 +41,7 @@
             grid-gap: 40px;
             justify-items: center;
             width: 90%;
+            margin-top: 30px; /* Adds space between the logo and grid */
         }
 
         .section {
@@ -61,11 +62,11 @@
 
         .section-name {
             position: absolute;
-            top: 140px; /* Adjusted upwards */
             text-align: center;
-            color: white;
+            color: black;
             font-size: 1rem;
             font-weight: 400;
+            bottom: 15px; /* Moves the section name closer to the bottom of the box */
         }
     </style>
 </head>
