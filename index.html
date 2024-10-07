@@ -18,19 +18,19 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Aligns everything to the top */
+            justify-content: flex-start;
             min-height: 100vh;
-            overflow: hidden; /* Prevents scrolling */
+            overflow: hidden;
         }
 
         /* Logo container */
         #logo {
-            margin-top: 10px; /* Moves the logo closer to the top */
+            margin-top: 10px;
             text-align: center;
         }
 
         #logo img {
-            width: 225px; /* Same logo size */
+            width: 225px;
             height: 275px;
         }
 
@@ -41,13 +41,15 @@
             grid-gap: 40px;
             justify-items: center;
             width: 90%;
-            margin-top: 10px; /* Adds some space between the logo and the grid */
+            margin-top: 10px;
         }
 
         .section {
             width: 150px;
             height: 150px;
             background-color: white;
+            background-size: cover; /* Ensures the background image covers the box */
+            background-position: center;
             border-radius: 15px;
             display: flex;
             justify-content: center;
@@ -62,11 +64,44 @@
 
         .section-name {
             position: absolute;
-            top: 160px; /* Keeps the name under the box */
+            top: 160px;
             text-align: center;
             color: white;
             font-size: 1rem;
             font-weight: 400;
+        }
+
+        /* Background images for each section */
+        .neurology {
+            background: url('images/neurology.png') no-repeat;
+        }
+
+        .hepatology {
+            background: url('images/hepatology.png') no-repeat;
+        }
+
+        .nephrology {
+            background: url('images/nephrology.png') no-repeat;
+        }
+
+        .cardiology {
+            background: url('images/cardiology.png') no-repeat;
+        }
+
+        .oncology {
+            background: url('images/oncology.png') no-repeat;
+        }
+
+        .gastrointestinology {
+            background: url('images/gastrointestinology.png') no-repeat;
+        }
+
+        .orthopaedic {
+            background: url('images/orthopaedic.png') no-repeat;
+        }
+
+        .mental-health {
+            background: url('images/mental-health.png') no-repeat;
         }
     </style>
 </head>
@@ -77,28 +112,28 @@
     </div>
 
     <div class="grid">
-        <div class="section">
+        <div class="section neurology">
             <div class="section-name">Neurology</div>
         </div>
-        <div class="section">
+        <div class="section hepatology">
             <div class="section-name">Hepatology</div>
         </div>
-        <div class="section">
+        <div class="section nephrology">
             <div class="section-name">Nephrology</div>
         </div>
-        <div class="section">
+        <div class="section cardiology">
             <div class="section-name">Cardiology</div>
         </div>
-        <div class="section">
+        <div class="section oncology">
             <div class="section-name">Oncology</div>
         </div>
-        <div class="section">
+        <div class="section gastrointestinology">
             <div class="section-name">Gastrointestinology</div>
         </div>
-        <div class="section">
+        <div class="section orthopaedic">
             <div class="section-name">Orthopaedic</div>
         </div>
-        <div class="section">
+        <div class="section mental-health">
             <div class="section-name">Mental Health</div>
         </div>
     </div>
