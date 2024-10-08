@@ -117,7 +117,7 @@
 
                 // Simulate bot response
                 setTimeout(() => {
-                    const botResponse = generateBotResponse(userMessage);
+                    const botResponse = generateBotResponse(userMessage.toLowerCase());
                     displayMessage(botResponse, 'bot-message');
                 }, 1000);
             }
@@ -132,14 +132,23 @@
         }
 
         function generateBotResponse(userMessage) {
-            // Basic responses based on user message (this can be enhanced with AI logic)
-            const responses = {
-                "What is heart disease?": "Heart disease refers to various types of conditions that affect the heart's structure and function.",
-                "How can I maintain heart health?": "To maintain heart health, eat a balanced diet, exercise regularly, and avoid smoking.",
-                "What are the symptoms of heart attack?": "Symptoms may include chest pain, shortness of breath, and discomfort in other areas like arms or jaw."
+            // Keyword-based responses
+            const keywords = {
+                "heart disease": "Heart disease refers to various types of conditions that affect the heart's structure and function.",
+                "maintain heart health": "To maintain heart health, eat a balanced diet, exercise regularly, and avoid smoking.",
+                "symptoms of heart attack": "Symptoms may include chest pain, shortness of breath, and discomfort in other areas like arms or jaw.",
+                "heart health": "To keep your heart healthy, incorporate regular exercise and a nutritious diet.",
+                "heart attack": "A heart attack can occur due to blocked arteries and can lead to severe health consequences."
             };
 
-            return responses[userMessage] || "I'm sorry, I don't have an answer for that.";
+            // Check for keywords in the user message
+            for (const keyword in keywords) {
+                if (userMessage.includes(keyword)) {
+                    return keywords[keyword];
+                }
+            }
+
+            return "I'm sorry, I don't have an answer for that. Can you please rephrase?";
         }
     </script>
 </body>
