@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardiology Chat</title>
+    <title>Cardiology Chat - MedChat</title>
     <style>
         * {
             margin: 0;
@@ -13,120 +13,133 @@
 
         body {
             font-family: Arial, sans-serif;
+            background: url('images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            background: #f0f0f0;
             padding: 20px;
         }
 
         #chat-container {
-            width: 100%;
-            max-width: 600px;
+            width: 80%;
+            max-width: 800px;
             background: white;
-            border-radius: 8px;
+            border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            height: 80vh;
-            overflow: hidden;
         }
 
         #messages {
-            flex: 1;
+            padding: 20px;
+            flex-grow: 1;
             overflow-y: auto;
-            margin-bottom: 10px;
-            padding-right: 10px;
+            max-height: 500px;
         }
 
         .message {
             margin: 10px 0;
             padding: 10px;
-            border-radius: 5px;
+            border-radius: 10px;
+            width: fit-content;
         }
 
         .user-message {
-            background-color: #e1ffc7;
+            background-color: #d1e7dd; /* Light green for user messages */
             align-self: flex-end;
         }
 
         .bot-message {
-            background-color: #f1f0f0;
+            background-color: #f8d7da; /* Light red for bot messages */
             align-self: flex-start;
         }
 
         #input-container {
             display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
         }
 
-        #user-input {
-            flex: 1;
+        #input-field {
+            flex-grow: 1;
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
+            margin-right: 10px;
         }
 
         #send-button {
-            padding: 10px 15px;
+            padding: 10px 20px;
             border: none;
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
         }
 
         #send-button:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Cardiology Chat</h1>
+
     <div id="chat-container">
         <div id="messages"></div>
         <div id="input-container">
-            <input type="text" id="user-input" placeholder="Ask your question here..." />
+            <input type="text" id="input-field" placeholder="Ask your question..." />
             <button id="send-button">Send</button>
         </div>
     </div>
 
     <script>
         const messagesContainer = document.getElementById('messages');
-        const userInput = document.getElementById('user-input');
+        const inputField = document.getElementById('input-field');
         const sendButton = document.getElementById('send-button');
 
-        sendButton.addEventListener('click', () => {
-            const userMessage = userInput.value.trim();
+        sendButton.addEventListener('click', sendMessage);
+        inputField.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const userMessage = inputField.value.trim();
             if (userMessage) {
-                appendMessage(userMessage, 'user-message');
-                userInput.value = '';
-                generateResponse(userMessage);
-            }
-        });
+                // Display user message
+                displayMessage(userMessage, 'user-message');
+                inputField.value = '';
 
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendButton.click();
+                // Simulate bot response
+                setTimeout(() => {
+                    const botResponse = generateBotResponse(userMessage);
+                    displayMessage(botResponse, 'bot-message');
+                }, 1000);
             }
-        });
-
-        function appendMessage(message, className) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', className);
-            messageElement.textContent = message;
-            messagesContainer.appendChild(messageElement);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        function generateResponse(userMessage) {
-            // Simulating a response after a short delay
-            setTimeout(() => {
-                const botResponse = `This is a simulated response for: "${userMessage}"`;
-                appendMessage(botResponse, 'bot-message');
-            }, 1000);
+        function displayMessage(message, type) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${type}`;
+            messageElement.textContent = message;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll to the bottom
+        }
+
+        function generateBotResponse(userMessage) {
+            // Basic responses based on user message (this can be enhanced with AI logic)
+            const responses = {
+                "What is heart disease?": "Heart disease refers to various types of conditions that affect the heart's structure and function.",
+                "How can I maintain heart health?": "To maintain heart health, eat a balanced diet, exercise regularly, and avoid smoking.",
+                "What are the symptoms of heart attack?": "Symptoms may include chest pain, shortness of breath, and discomfort in other areas like arms or jaw."
+            };
+
+            return responses[userMessage] || "I'm sorry, I don't have an answer for that.";
         }
     </script>
 </body>
