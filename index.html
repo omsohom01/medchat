@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedChat</title>
+    <title>MedChat - Cardiology</title>
     <style>
+        /* Existing styles */
         * {
             margin: 0;
             padding: 0;
@@ -20,10 +21,8 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            overflow: hidden;
         }
 
-        /* Logo container */
         #logo {
             margin-top: 10px;
             text-align: center;
@@ -34,7 +33,6 @@
             height: 275px;
         }
 
-        /* Grid for the sections */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -48,7 +46,7 @@
             width: 150px;
             height: 150px;
             background-color: white;
-            background-size: cover; /* Ensures the background image covers the box */
+            background-size: cover;
             background-position: center;
             border-radius: 15px;
             display: flex;
@@ -71,46 +69,68 @@
             font-weight: 400;
         }
 
-        /* Background images for each section */
-        .neurology {
-            background: url('images/neurology1.jpg') no-repeat;
+        /* Chatbox styling */
+        #chatbox {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 10px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            flex-direction: column;
+            z-index: 1000;
         }
 
-        .hepatology {
-            background: url('images/hepatology1.jpg') no-repeat;
+        #chatbox-header {
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            text-align: center;
         }
 
-        .nephrology {
-            background: url('images/nephrology1.jpg') no-repeat;
+        #chatbox-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            font-size: 14px;
         }
 
-        .cardiology {
-            background: url('images/cardiology1.jpg') no-repeat;
+        #chatbox-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
         }
 
-        .oncology {
-            background: url('images/oncology1.jpg') no-repeat;
+        #chatbox-input input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
         }
 
-        .gastrointestinology {
-            background: url('images/gastrointestinology1.jpg') no-repeat;
-        }
-
-        .orthopaedic {
-            background: url('images/orthopaedic1.jpg') no-repeat;
-        }
-
-        .mental-health {
-            background: url('images/mental-health1.jpg') no-repeat;
+        #chatbox-input button {
+            margin-left: 5px;
+            padding: 8px;
+            border: none;
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!-- Placeholder for logo -->
     <div id="logo">
-        <img src="images/logo.png" alt="Logo"> <!-- Replace this with your actual logo -->
+        <img src="images/logo.png" alt="Logo">
     </div>
 
+    <!-- Medical sections -->
     <div class="grid">
         <div class="section neurology">
             <div class="section-name">Neurology</div>
@@ -121,7 +141,7 @@
         <div class="section nephrology">
             <div class="section-name">Nephrology</div>
         </div>
-        <div class="section cardiology">
+        <div class="section cardiology" id="cardiology-section">
             <div class="section-name">Cardiology</div>
         </div>
         <div class="section oncology">
@@ -137,5 +157,57 @@
             <div class="section-name">Mental Health</div>
         </div>
     </div>
+
+    <!-- Chatbox -->
+    <div id="chatbox">
+        <div id="chatbox-header">Cardiology Chat</div>
+        <div id="chatbox-messages"></div>
+        <div id="chatbox-input">
+            <input type="text" id="user-input" placeholder="Ask about heart health...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Show chatbox when cardiology section is clicked
+        document.getElementById('cardiology-section').addEventListener('click', function() {
+            document.getElementById('chatbox').style.display = 'flex';
+        });
+
+        // Function to simulate chatbot response
+        function getBotResponse(userInput) {
+            const responses = {
+                "chest pain": "Chest pain can be a symptom of many things, including a heart attack. If you feel severe pain, please contact a doctor immediately.",
+                "heart attack": "If you suspect you're having a heart attack, call emergency services immediately. Symptoms may include chest pain, shortness of breath, and sweating.",
+                "medication": "For heart-related issues, common medications include aspirin, beta-blockers, or statins. Always consult a doctor before taking medication."
+                // Add more responses as needed
+            };
+
+            let response = "I am sorry, I don't have enough information on that. Please consult a healthcare provider.";
+            for (let key in responses) {
+                if (userInput.toLowerCase().includes(key)) {
+                    response = responses[key];
+                    break;
+                }
+            }
+
+            return response;
+        }
+
+        // Handle user input
+        document.getElementById('send-btn').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() === "") return;
+
+            const chatMessages = document.getElementById('chatbox-messages');
+            chatMessages.innerHTML += `<div><strong>You:</strong> ${userInput}</div>`;
+            
+            const botResponse = getBotResponse(userInput);
+            chatMessages.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+
+            document.getElementById('user-input').value = ""; // Clear input
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+        });
+    </script>
 </body>
 </html>
