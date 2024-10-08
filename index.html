@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedChat - Homepage</title>
+    <title>MedChat - Home</title>
     <style>
-        /* Existing styles */
+        /* General styles */
         * {
             margin: 0;
             padding: 0;
@@ -19,12 +19,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             min-height: 100vh;
+            color: white;
         }
 
         #logo {
-            margin-top: 10px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
@@ -33,27 +34,15 @@
             height: 275px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 40px;
-            justify-items: center;
-            width: 90%;
-            margin-top: 10px;
-        }
-
+        /* Section styles */
         .section {
-            width: 150px;
-            height: 150px;
-            background-color: white;
-            background-size: cover;
-            background-position: center;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            transition: transform 0.3s ease;
+            background-color: rgba(244, 67, 54, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            width: 200px; /* Set a fixed width for each section */
         }
 
         .section:hover {
@@ -61,81 +50,80 @@
         }
 
         .section-name {
-            position: absolute;
-            top: 160px;
-            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
             color: white;
-            font-size: 1rem;
-            font-weight: 400;
+            text-decoration: none;
+            display: block; /* Make the entire section clickable */
         }
 
-        /* Add background images to each section */
-        .section.neurology {
-            background-image: url('images/neurology1.jpg');
+        .section img {
+            width: 100%; /* Make the image fit the section width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
         }
 
-        .section.hepatology {
-            background-image: url('images/hepatology1.jpg');
-        }
-
-        .section.nephrology {
-            background-image: url('images/nephrology1.jpg');
-        }
-
-        .section.cardiology {
-            background-image: url('images/cardiology1.jpg');
-        }
-
-        .section.oncology {
-            background-image: url('images/oncology1.jpg');
-        }
-
-        .section.gastrointestinology {
-            background-image: url('images/gastrointestinology1.jpg');
-        }
-
-        .section.orthopaedic {
-            background-image: url('images/orthopaedic1.jpg');
-        }
-
-        .section.mental-health {
-            background-image: url('images/mental-health1.jpg');
+        .section-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Placeholder for logo -->
     <div id="logo">
         <img src="images/logo.png" alt="Logo">
     </div>
 
-    <!-- Medical sections -->
-    <div class="grid">
-        <div class="section neurology">
-            <div class="section-name">Neurology</div>
-        </div>
-        <div class="section hepatology">
-            <div class="section-name">Hepatology</div>
-        </div>
-        <div class="section nephrology">
-            <div class="section-name">Nephrology</div>
-        </div>
-        <div class="section cardiology" id="cardiology-section">
-            <a href="cardiology.html">
-                <div class="section-name">Cardiology</div>
+    <div class="section-container">
+        <div class="section" id="gastrointestinology-section">
+            <a href="gastrointestinology.html" class="section-name">
+                <img src="images/gastrointestinology.jpg" alt="Gastrointestinology">
+                Gastrointestinology
             </a>
         </div>
-        <div class="section oncology">
-            <div class="section-name">Oncology</div>
+        <div class="section" id="nephrology-section">
+            <a href="nephrology.html" class="section-name">
+                <img src="images/nephrology.jpg" alt="Nephrology">
+                Nephrology
+            </a>
         </div>
-        <div class="section gastrointestinology">
-            <div class="section-name">Gastrointestinology</div>
+        <div class="section" id="hepatology-section">
+            <a href="hepatology.html" class="section-name">
+                <img src="images/hepatology.jpg" alt="Hepatology">
+                Hepatology
+            </a>
         </div>
-        <div class="section orthopaedic">
-            <div class="section-name">Orthopaedic</div>
+        <div class="section" id="neurology-section">
+            <a href="neurology.html" class="section-name">
+                <img src="images/neurology.jpg" alt="Neurology">
+                Neurology
+            </a>
         </div>
-        <div class="section mental-health">
-            <div class="section-name">Mental Health</div>
+        <div class="section" id="orthopaedic-section">
+            <a href="orthopaedic.html" class="section-name">
+                <img src="images/orthopaedic.jpg" alt="Orthopaedic">
+                Orthopaedic
+            </a>
+        </div>
+        <div class="section" id="cardiology-section">
+            <a href="cardiology.html" class="section-name">
+                <img src="images/cardiology.jpg" alt="Cardiology">
+                Cardiology
+            </a>
+        </div>
+        <div class="section" id="oncology-section">
+            <a href="oncology.html" class="section-name">
+                <img src="images/oncology.jpg" alt="Oncology">
+                Oncology
+            </a>
+        </div>
+        <div class="section" id="mental-health-section">
+            <a href="mental_health.html" class="section-name">
+                <img src="images/mental_health.jpg" alt="Mental Health">
+                Mental Health
+            </a>
         </div>
     </div>
 </body>
