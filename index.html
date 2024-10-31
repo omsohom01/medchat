@@ -20,7 +20,7 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden; /* Hide horizontal overflow */
         }
 
         /* Logo container */
@@ -42,6 +42,8 @@
             justify-items: center;
             width: 90%;
             margin-top: 10px;
+            overflow-y: auto; /* Allow vertical scrolling */
+            padding-bottom: 20px; /* Add padding to bottom for scrolling */
         }
 
         .section {
@@ -56,6 +58,7 @@
             align-items: center;
             position: relative;
             transition: transform 0.3s ease;
+            overflow: hidden; /* Hide overflow of the images */
         }
 
         .section:hover {
@@ -128,18 +131,19 @@
             .grid {
                 grid-template-columns: 1fr; /* One column for mobile phones */
                 grid-gap: 15px; /* Further reduced gap */
+                padding: 10px; /* Add padding for better spacing */
+                max-height: 80vh; /* Limit the height for mobile */
+                overflow-y: auto; /* Allow vertical scrolling */
             }
 
             .section {
                 width: 90%; /* Use most of the width on mobile */
-                height: auto; /* Allow height to adjust */
-                padding-bottom: 15%; /* Maintain aspect ratio */
-                position: relative; /* Position relative for text */
+                height: 120px; /* Set a fixed height for better fitting */
             }
 
             .section-name {
                 font-size: 0.8rem; /* Even smaller font size for mobile */
-                bottom: -20px; /* Adjust vertical positioning */
+                bottom: -25px; /* Adjust vertical positioning */
             }
 
             #logo img {
