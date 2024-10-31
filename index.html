@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +20,10 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
+        /* Logo container */
         #logo {
             margin-top: 10px;
             text-align: center;
@@ -30,32 +31,30 @@
 
         #logo img {
             width: 225px;
-            height: auto; /* Maintain aspect ratio */
+            height: 275px;
         }
 
         /* Grid for the sections */
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
+            grid-gap: 40px;
             justify-items: center;
             width: 90%;
             margin-top: 10px;
-            padding-bottom: 20px; /* Add padding to bottom for scrolling */
         }
 
         .section {
             width: 150px;
             height: 150px;
             background-color: white;
-            background-size: cover; 
+            background-size: cover; /* Ensures the background image covers the box */
             background-position: center;
             border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden; /* Hide overflow of the images */
             transition: transform 0.3s ease;
         }
 
@@ -65,14 +64,14 @@
 
         .section-name {
             position: absolute;
-            bottom: 0; /* Adjust to be at the bottom */
+            bottom: -30px; /* Adjust the vertical positioning to be directly below the box */
             text-align: center;
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            width: 100%; /* Full width */
-            padding: 5px; /* Padding for better spacing */
+            left: 0;    /* Center alignment */
+            right: 0;   /* Center alignment */
+            margin: auto; /* Center alignment */
         }
 
         /* Background images for each section */
@@ -107,46 +106,12 @@
         .mental-health {
             background: url('images/mental-health1.jpg') no-repeat;
         }
-
-        /* Media queries for mobile responsiveness */
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
-            }
-
-            .section {
-                width: 120px; /* Adjust section width */
-                height: 120px; /* Adjust section height */
-            }
-
-            .section-name {
-                font-size: 0.9rem; /* Smaller font size for mobile */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr; /* One column for mobile phones */
-            }
-
-            .section {
-                width: 90%; /* Use most of the width on mobile */
-                height: 120px; /* Set a fixed height for better fitting */
-            }
-
-            .section-name {
-                font-size: 0.8rem; /* Smaller font size for mobile */
-            }
-
-            #logo img {
-                width: 150px; /* Adjust logo size for mobile */
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- Placeholder for logo -->
     <div id="logo">
-        <img src="images/logo.png" alt="Logo">
+        <img src="images/logo.png" alt="Logo"> <!-- Replace this with your actual logo -->
     </div>
 
     <div class="grid">
