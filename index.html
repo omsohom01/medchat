@@ -20,17 +20,16 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            overflow-x: hidden; /* Hide horizontal overflow */
+            overflow-x: hidden;
         }
 
-        /* Logo container */
         #logo {
             margin-top: 10px;
             text-align: center;
         }
 
         #logo img {
-            width: 225px; /* Adjust logo size */
+            width: 225px;
             height: auto; /* Maintain aspect ratio */
         }
 
@@ -38,7 +37,7 @@
         .grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-gap: 40px;
+            grid-gap: 20px;
             justify-items: center;
             width: 90%;
             margin-top: 10px;
@@ -49,15 +48,15 @@
             width: 150px;
             height: 150px;
             background-color: white;
-            background-size: cover; /* Ensures the background image covers the box */
+            background-size: cover; 
             background-position: center;
             border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            transition: transform 0.3s ease;
             overflow: hidden; /* Hide overflow of the images */
+            transition: transform 0.3s ease;
         }
 
         .section:hover {
@@ -66,17 +65,14 @@
 
         .section-name {
             position: absolute;
-            bottom: -30px; /* Adjust the vertical positioning to be directly below the box */
+            bottom: 0; /* Adjust to be at the bottom */
             text-align: center;
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            left: 0; /* Center alignment */
-            right: 0; /* Center alignment */
-            margin: auto; /* Center alignment */
-            background-color: rgba(0, 0, 0, 0.5); /* Add background for better visibility */
-            padding: 5px; /* Add some padding */
-            border-radius: 10px; /* Rounded corners for the background */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            width: 100%; /* Full width */
+            padding: 5px; /* Padding for better spacing */
         }
 
         /* Background images for each section */
@@ -116,7 +112,6 @@
         @media (max-width: 768px) {
             .grid {
                 grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
-                grid-gap: 20px; /* Reduced gap */
             }
 
             .section {
@@ -132,10 +127,6 @@
         @media (max-width: 480px) {
             .grid {
                 grid-template-columns: 1fr; /* One column for mobile phones */
-                grid-gap: 15px; /* Further reduced gap */
-                padding: 10px; /* Add padding for better spacing */
-                max-height: 80vh; /* Limit the height for mobile */
-                overflow-y: auto; /* Allow vertical scrolling */
             }
 
             .section {
@@ -144,21 +135,18 @@
             }
 
             .section-name {
-                font-size: 0.8rem; /* Even smaller font size for mobile */
-                bottom: -25px; /* Adjust vertical positioning */
+                font-size: 0.8rem; /* Smaller font size for mobile */
             }
 
             #logo img {
                 width: 150px; /* Adjust logo size for mobile */
-                height: auto; /* Maintain aspect ratio */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Placeholder for logo -->
     <div id="logo">
-        <img src="images/logo.png" alt="Logo"> <!-- Replace this with your actual logo -->
+        <img src="images/logo.png" alt="Logo">
     </div>
 
     <div class="grid">
